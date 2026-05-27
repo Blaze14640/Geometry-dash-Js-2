@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #0f2027, #000);
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  height: 800px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #00008B, #800080, #341539);
+}
+
+#ground {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 60px;
+  background: repeating-linear-gradient(
+    45deg,
+    #111,
+    #111 20px,
+    #00ffcc 20px,
+    #00ffcc 40px
+  );
+  animation: moveGround 0.5s linear infinite;
+}
+
+@keyframes moveGround {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+#player {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 80px;
+  bottom: 60px;
+  background: linear-gradient(45deg, #0000CD, #0000CD);
+  box-shadow: 0 0 15px #005A9C;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 60px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #ff003c;
+  filter: drop-shadow(0 0 10px red);
+  z-index: 1;
+}
+
+.coin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff700, #ffae00);
+  box-shadow: 0 0 15px #ffd700;
+  animation: float 1s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-10px); }
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: white;
+  font-family: Arial;
+  font-size: 22px;
+}
+
+#menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+#menu button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: linear-gradient(45deg, #00ffff, #8a2be2);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+#menu button:hover {
+  transform: scale(1.05);
+}
